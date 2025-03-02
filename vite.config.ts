@@ -28,11 +28,16 @@ export default defineConfig({
           }
         },
         sanitizeFileName(name) {
-          return name.replace(/\.[jt]s$/, '.js');
+          return name.replace(/\.[jt]sx?$/, '.js');
         }
       }
     },
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 1600,
     sourcemap: false
+  },
+  server: {
+    fs: {
+      allow: ['..']
+    }
   }
 })
