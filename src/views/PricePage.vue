@@ -1,4 +1,3 @@
-// src/views/PricePage.vue
 <template>
   <ion-page>
     <ion-content :fullscreen="true" class="bitcoin-bg">
@@ -33,6 +32,7 @@
 import { IonContent, IonPage, IonRefresher, IonRefresherContent } from '@ionic/vue';
 import { defineComponent, ref, onMounted, computed } from 'vue';
 import BitcoinService from '../services/BitcoinService';
+import { RefresherCustomEvent } from '@ionic/core';
 
 export default defineComponent({
   name: 'PricePage',
@@ -60,8 +60,9 @@ export default defineComponent({
       bitcoinPrice.value = Math.round(price);
     };
 
-    const refreshPrice = async (event: CustomEvent): Promise<void> => {
+    const refreshPrice = async (event: RefresherCustomEvent): Promise<void> => {
       await loadPrice();
+      // Now properly typed, this won't cause TypeScript errors
       event.target.complete();
     };
 

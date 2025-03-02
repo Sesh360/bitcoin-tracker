@@ -1,4 +1,3 @@
-// src/views/ChangePage.vue
 <template>
   <ion-page>
     <ion-content :fullscreen="true" class="bitcoin-bg">
@@ -28,6 +27,7 @@
 import { IonContent, IonPage, IonRefresher, IonRefresherContent } from '@ionic/vue';
 import { defineComponent, ref, onMounted } from 'vue';
 import BitcoinService from '../services/BitcoinService';
+import { RefresherCustomEvent } from '@ionic/core';
 
 export default defineComponent({
   name: 'ChangePage',
@@ -52,8 +52,9 @@ export default defineComponent({
       }
     };
 
-    const refreshData = async (event: CustomEvent): Promise<void> => {
+    const refreshData = async (event: RefresherCustomEvent): Promise<void> => {
       await fetchPercentChanges();
+      // Now properly typed, this won't cause TypeScript errors
       event.target.complete();
     };
 
