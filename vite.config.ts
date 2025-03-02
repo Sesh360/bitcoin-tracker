@@ -1,5 +1,4 @@
 /// <reference types="vitest" />
-
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
@@ -11,7 +10,7 @@ export default defineConfig({
     vue(),
     legacy()
   ],
-  base: 'https://github.com/Sesh360/bitcoin-tracker.git',
+  base: '/bitcoin-tracker/', // Change to your repository name
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
