@@ -26,10 +26,12 @@ export default defineConfig({
           if (id.includes('node_modules')) {
             return 'vendor';
           }
+        },
+        sanitizeFileName(name) {
+          return name.replace(/\.[jt]s$/, '.js');
         }
       }
     },
-    // Add these lines to handle potential MIME type issues
     chunkSizeWarningLimit: 1000,
     sourcemap: false
   }
