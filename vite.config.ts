@@ -9,7 +9,7 @@ export default defineConfig({
     vue(),
     legacy()
   ],
-  base: '/bitcoin-tracker/',
+  base: '/bitcoin-tracker/', // Your base path for GitHub Pages
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -28,12 +28,18 @@ export default defineConfig({
           }
         },
         sanitizeFileName(name) {
-          return name.replace(/\.[jt]sx?$/, '.js');
+          // Enhanced fix for MIME type issues
+          const sanitizedName = name.replace(/\.[jt]sx?$/, '.js');
+          return sanitizedName.replace(/[?#]/g, '');
         }
       }
     },
     chunkSizeWarningLimit: 1600,
-    sourcemap: false
+    sourcemap: false,
+    // Fix for MIME type errors
+    assetsInlineLimit: 0,
+    outDir: 'dist',
+    emptyOutDir: true,
   },
   server: {
     fs: {
