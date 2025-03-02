@@ -1,9 +1,9 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.bitcointracker.app',
   appName: 'bitcoin-tracker',
-  webDir: 'dist'
+  webDir: 'public'
 };
 
 export default config;
