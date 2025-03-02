@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "deploy": "gh-pages -d dist",
     "capacitor": "npx cap sync",
     "preview": "vite preview",
     "test:e2e": "cypress run",
     "test:unit": "vitest",
     "lint": "eslint .",
-    "deploy": "gh-pages -d build",
     "homepage": "https://Sesh360.github.io/"
   },
   "dependencies": {
