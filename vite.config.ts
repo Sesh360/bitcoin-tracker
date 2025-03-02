@@ -11,6 +11,7 @@ export default defineConfig({
     vue(),
     legacy()
   ],
+  base: 'https://github.com/Sesh360/bitcoin-tracker.git',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
